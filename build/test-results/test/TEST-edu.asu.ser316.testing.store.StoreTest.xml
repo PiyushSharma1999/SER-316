@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.asu.ser316.testing.store.StoreTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-11-06T16:41:42.070Z" hostname="Piyushs-MacBook-Air.local" time="0.001">
+  <properties/>
+  <testcase name="placingOrderUpdatesHistoryAndStock()" classname="edu.asu.ser316.testing.store.StoreTest" time="0.0"/>
+  <testcase name="notEnoughStockChangesNothing()" classname="edu.asu.ser316.testing.store.StoreTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

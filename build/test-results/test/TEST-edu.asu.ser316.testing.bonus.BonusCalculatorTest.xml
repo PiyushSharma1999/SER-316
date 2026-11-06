@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.asu.ser316.testing.bonus.BonusCalculatorTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2026-11-06T16:41:42.022Z" hostname="Piyushs-MacBook-Air.local" time="0.035">
+  <properties/>
+  <testcase name="2 years earns 0%" classname="edu.asu.ser316.testing.bonus.BonusCalculatorTest" time="0.019"/>
+  <testcase name="4 years earns 50%" classname="edu.asu.ser316.testing.bonus.BonusCalculatorTest" time="0.001"/>
+  <testcase name="7 years earns 75%" classname="edu.asu.ser316.testing.bonus.BonusCalculatorTest" time="0.0"/>
+  <testcase name="30 years earns 100%" classname="edu.asu.ser316.testing.bonus.BonusCalculatorTest" time="0.0"/>
+  <testcase name="1 years earns 0%" classname="edu.asu.ser316.testing.bonus.BonusCalculatorTest" time="0.0"/>
+  <testcase name="3 years earns 0%" classname="edu.asu.ser316.testing.bonus.BonusCalculatorTest" time="0.001"/>
+  <testcase name="5 years earns 50%" classname="edu.asu.ser316.testing.bonus.BonusCalculatorTest" time="0.0"/>
+  <testcase name="6 years earns 75%" classname="edu.asu.ser316.testing.bonus.BonusCalculatorTest" time="0.0"/>
+  <testcase name="8 years earns 75%" classname="edu.asu.ser316.testing.bonus.BonusCalculatorTest" time="0.001"/>
+  <testcase name="9 years earns 100%" classname="edu.asu.ser316.testing.bonus.BonusCalculatorTest" time="0.0"/>
+  <testcase name="69 years earns 100%" classname="edu.asu.ser316.testing.bonus.BonusCalculatorTest" time="0.001"/>
+  <testcase name="-6 years is rejected" classname="edu.asu.ser316.testing.bonus.BonusCalculatorTest" time="0.003"/>
+  <testcase name="0 years is rejected" classname="edu.asu.ser316.testing.bonus.BonusCalculatorTest" time="0.0"/>
+  <testcase name="70 years is rejected" classname="edu.asu.ser316.testing.bonus.BonusCalculatorTest" time="0.001"/>
+  <testcase name="80 years is rejected" classname="edu.asu.ser316.testing.bonus.BonusCalculatorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

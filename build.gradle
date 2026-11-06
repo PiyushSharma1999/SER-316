@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Instructor setup: the hidden implementations as a subproject.
+    // Student setup: replace this line with  testImplementation files('libs/bonus-hidden.jar')
+    testImplementation project(':bonus-hidden')
+
+    testImplementation platform('org.junit:junit-bom:5.11.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+
+    // Which hidden computeBonus implementation to test: A, B or C.
+    // ./gradlew test -PbonusImpl=A
+    systemProperty 'bonus.impl', findProperty('bonusImpl') ?: 'C'
+
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+        exceptionFormat 'full'
+    }
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        html.required = true
+        xml.required = false
+    }
+}

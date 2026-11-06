@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Grades.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ser316-testing-examples</a> &gt; <a href="index.source.html" class="el_package">edu.asu.ser316.testing.grades</a> &gt; <span class="el_source">Grades.java</span></div><h1>Grades.java</h1><pre class="source lang-java linenums">package edu.asu.ser316.testing.grades;
+
+/**
+ * White-box examples. The code matches the slides, including its bugs.
+ */
+<span class="fc" id="L6">public class Grades {</span>
+
+    static final float MAX = Float.MAX_VALUE;
+
+    private float[] lastLowestTwo;
+
+    /**
+     * Requirement: return the average score after dropping the lowest one.
+     *
+     * Known bugs, used for loop coverage:
+     * an empty array returns 99999.0, and a single score returns NaN.
+     */
+    public float homeworkAverage(float[] scores) {
+<span class="fc" id="L19">        float min = 99999;                        // A</span>
+<span class="fc" id="L20">        float total = 0;                          // A</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        for (int i = 0; i &lt; scores.length; i++) { // B</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">            if (scores[i] &lt; min)                  // C</span>
+<span class="fc" id="L23">                min = scores[i];                  // D</span>
+<span class="fc" id="L24">            total += scores[i];                   // E</span>
+        }
+<span class="fc" id="L26">        total = total - min;                      // F</span>
+<span class="fc" id="L27">        return total / (scores.length - 1);       // F</span>
+    }
+
+    /**
+     * Requirement: return the average of the scores. If there are at least
+     * two scores, also output the two lowest.
+     */
+    public float findAverage(float[] scores) {
+<span class="fc" id="L35">        lastLowestTwo = null;</span>
+<span class="fc" id="L36">        float total = 0, min = MAX, min2 = MAX;</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (int i = 0; i &lt; scores.length; i++) {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            if (scores[i] &lt; min) {</span>
+<span class="fc" id="L39">                min2 = min;</span>
+<span class="fc" id="L40">                min = scores[i];</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">            } else if (scores[i] &lt; min2) {</span>
+<span class="fc" id="L42">                min2 = scores[i];</span>
+            }
+<span class="fc" id="L44">            total += scores[i];</span>
+        }
+<span class="pc bpc" id="L46" title="1 of 4 branches missed.">        if (min != MAX &amp;&amp; min2 != MAX)</span>
+<span class="fc" id="L47">            output(min, min2);</span>
+<span class="fc" id="L48">        return total / scores.length;</span>
+    }
+
+    /** The two lowest scores from the last findAverage call, or null if none were output. */
+    public float[] getLastLowestTwo() {
+<span class="fc" id="L53">        return lastLowestTwo;</span>
+    }
+
+    private void output(float lowest, float secondLowest) {
+<span class="fc" id="L57">        lastLowestTwo = new float[] {lowest, secondLowest};</span>
+<span class="fc" id="L58">        System.out.println(&quot;Lowest scores: &quot; + lowest + &quot;, &quot; + secondLowest);</span>
+<span class="fc" id="L59">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

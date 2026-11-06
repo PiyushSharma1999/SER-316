@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Order.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ser316-testing-examples</a> &gt; <a href="index.source.html" class="el_package">edu.asu.ser316.testing.shipping</a> &gt; <span class="el_source">Order.java</span></div><h1>Order.java</h1><pre class="source lang-java linenums">package edu.asu.ser316.testing.shipping;
+
+/**
+ * Requirement given to students (black box):
+ * Orders over $50.00 ship free. Other orders pay $5.00 shipping.
+ * A negative total is rejected with an IllegalArgumentException.
+ *
+ * The express rule below is NOT in the requirement. It was added later by
+ * another developer. The black-box tests never reach it, which is the
+ * starting point for the white-box module.
+ */
+public class Order {
+
+    private final double total;
+    private final boolean express;
+
+    public Order(double total) {
+<span class="fc" id="L18">        this(total, false);</span>
+<span class="fc" id="L19">    }</span>
+
+<span class="fc" id="L21">    public Order(double total, boolean express) {</span>
+<span class="fc" id="L22">        this.total = total;</span>
+<span class="fc" id="L23">        this.express = express;</span>
+<span class="fc" id="L24">    }</span>
+
+    public double getTotal() {
+<span class="nc" id="L27">        return total;</span>
+    }
+
+    public boolean isExpress() {
+<span class="nc" id="L31">        return express;</span>
+    }
+
+    public double shippingCost() {
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (total &lt; 0) {</span>
+<span class="fc" id="L36">            throw new IllegalArgumentException(&quot;Order total must not be negative&quot;);</span>
+        }
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (total &gt; 50.00) {</span>
+<span class="fc" id="L39">            return 0.00;</span>
+        }
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (express) {</span>
+<span class="fc" id="L42">            return 12.00;</span>
+        }
+<span class="fc" id="L44">        return 5.00;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

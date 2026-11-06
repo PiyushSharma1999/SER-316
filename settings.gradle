@@ -1,0 +1,5 @@
+rootProject.name = 'ser316-testing-examples'
+
+// Holds the computeBonus implementations that students never see.
+// See README for how to hand it out as a jar.
+include 'bonus-hidden'

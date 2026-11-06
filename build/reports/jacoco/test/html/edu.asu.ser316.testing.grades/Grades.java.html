@@ -3,7 +3,7 @@
 /**
  * White-box examples. The code matches the slides, including its bugs.
  */
-<span class="nc" id="L6">public class Grades {</span>
+<span class="fc" id="L6">public class Grades {</span>
 
     static final float MAX = Float.MAX_VALUE;
 
@@ -16,15 +16,15 @@
      * an empty array returns 99999.0, and a single score returns NaN.
      */
     public float homeworkAverage(float[] scores) {
-<span class="nc" id="L19">        float min = 99999;                        // A</span>
-<span class="nc" id="L20">        float total = 0;                          // A</span>
-<span class="nc bnc" id="L21" title="All 2 branches missed.">        for (int i = 0; i &lt; scores.length; i++) { // B</span>
-<span class="nc bnc" id="L22" title="All 2 branches missed.">            if (scores[i] &lt; min)                  // C</span>
-<span class="nc" id="L23">                min = scores[i];                  // D</span>
-<span class="nc" id="L24">            total += scores[i];                   // E</span>
+<span class="fc" id="L19">        float min = 99999;                        // A</span>
+<span class="fc" id="L20">        float total = 0;                          // A</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        for (int i = 0; i &lt; scores.length; i++) { // B</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">            if (scores[i] &lt; min)                  // C</span>
+<span class="fc" id="L23">                min = scores[i];                  // D</span>
+<span class="fc" id="L24">            total += scores[i];                   // E</span>
         }
-<span class="nc" id="L26">        total = total - min;                      // F</span>
-<span class="nc" id="L27">        return total / (scores.length - 1);       // F</span>
+<span class="fc" id="L26">        total = total - min;                      // F</span>
+<span class="fc" id="L27">        return total / (scores.length - 1);       // F</span>
     }
 
     /**
@@ -32,30 +32,30 @@
      * two scores, also output the two lowest.
      */
     public float findAverage(float[] scores) {
-<span class="nc" id="L35">        lastLowestTwo = null;</span>
-<span class="nc" id="L36">        float total = 0, min = MAX, min2 = MAX;</span>
-<span class="nc bnc" id="L37" title="All 2 branches missed.">        for (int i = 0; i &lt; scores.length; i++) {</span>
-<span class="nc bnc" id="L38" title="All 2 branches missed.">            if (scores[i] &lt; min) {</span>
-<span class="nc" id="L39">                min2 = min;</span>
-<span class="nc" id="L40">                min = scores[i];</span>
-<span class="nc bnc" id="L41" title="All 2 branches missed.">            } else if (scores[i] &lt; min2) {</span>
-<span class="nc" id="L42">                min2 = scores[i];</span>
+<span class="fc" id="L35">        lastLowestTwo = null;</span>
+<span class="fc" id="L36">        float total = 0, min = MAX, min2 = MAX;</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (int i = 0; i &lt; scores.length; i++) {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            if (scores[i] &lt; min) {</span>
+<span class="fc" id="L39">                min2 = min;</span>
+<span class="fc" id="L40">                min = scores[i];</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">            } else if (scores[i] &lt; min2) {</span>
+<span class="fc" id="L42">                min2 = scores[i];</span>
             }
-<span class="nc" id="L44">            total += scores[i];</span>
+<span class="fc" id="L44">            total += scores[i];</span>
         }
-<span class="nc bnc" id="L46" title="All 4 branches missed.">        if (min != MAX &amp;&amp; min2 != MAX)</span>
-<span class="nc" id="L47">            output(min, min2);</span>
-<span class="nc" id="L48">        return total / scores.length;</span>
+<span class="pc bpc" id="L46" title="1 of 4 branches missed.">        if (min != MAX &amp;&amp; min2 != MAX)</span>
+<span class="fc" id="L47">            output(min, min2);</span>
+<span class="fc" id="L48">        return total / scores.length;</span>
     }
 
     /** The two lowest scores from the last findAverage call, or null if none were output. */
     public float[] getLastLowestTwo() {
-<span class="nc" id="L53">        return lastLowestTwo;</span>
+<span class="fc" id="L53">        return lastLowestTwo;</span>
     }
 
     private void output(float lowest, float secondLowest) {
-<span class="nc" id="L57">        lastLowestTwo = new float[] {lowest, secondLowest};</span>
-<span class="nc" id="L58">        System.out.println(&quot;Lowest scores: &quot; + lowest + &quot;, &quot; + secondLowest);</span>
-<span class="nc" id="L59">    }</span>
+<span class="fc" id="L57">        lastLowestTwo = new float[] {lowest, secondLowest};</span>
+<span class="fc" id="L58">        System.out.println(&quot;Lowest scores: &quot; + lowest + &quot;, &quot; + secondLowest);</span>
+<span class="fc" id="L59">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

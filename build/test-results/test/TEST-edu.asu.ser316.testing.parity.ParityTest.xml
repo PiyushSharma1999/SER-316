@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.asu.ser316.testing.parity.ParityTest" tests="2" skipped="1" failures="0" errors="0" timestamp="2026-11-06T16:42:43.404Z" hostname="Piyushs-MacBook-Air.local" time="0.001">
+  <properties/>
+  <testcase name="threeIsOdd()" classname="edu.asu.ser316.testing.parity.ParityTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="fourIsEven()" classname="edu.asu.ser316.testing.parity.ParityTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
